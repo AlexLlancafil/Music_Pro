@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'MusicProMysql'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5EF85B7D1AAF4A128D866E7A96D91AC8 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_679A5336829242CB94E105E89BE90C2E }}
