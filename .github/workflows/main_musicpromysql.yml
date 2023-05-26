@@ -17,8 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up Node.js version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
       - name: Set up Python version
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: '3.10'
 
@@ -39,7 +44,6 @@ jobs:
           path: |
             . 
             !venv/
-
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -61,3 +65,4 @@ jobs:
           app-name: 'MusicProMysql'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2E69DA4C648A47D79CF48E57D559648C }}
+
