@@ -14,9 +14,9 @@ def obtener_productos():
     try:
         # Establecer conexión a la base de datos
         conexion = mysql.connector.connect(
-            host='localhost',
-            user='root',
-            password='contrasena',
+            host='localhostmysql.mysql.database.azure.com',
+            user='rootAlex',
+            password='contrasena123$',
             database='pruebabdd_2'
         )
 
