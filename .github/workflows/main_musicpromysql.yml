@@ -17,8 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up Node.js version
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
       - name: Set up Python version
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v2
         with:
           python-version: '3.10'
 
@@ -26,6 +31,7 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+          python -m pip install --upgrade pip
       
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -39,7 +45,7 @@ jobs:
           path: |
             . 
             !venv/
-
+  
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -56,9 +62,12 @@ jobs:
           
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
-        id: deploy-to-webapp
         with:
           app-name: 'MusicProMysql'
           slot-name: 'Production'
+<<<<<<< HEAD
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_679A5336829242CB94E105E89BE90C2E }}
+=======
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2E69DA4C648A47D79CF48E57D559648C }}
+>>>>>>> 056dad2bc08b6e72d7885a61accf42a85fdfe629
 
